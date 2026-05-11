@@ -1,0 +1,54 @@
+/* Re-uses the consolidated styles in InterviewCard.module.css */
+/* These classes are defined there for shared use */
+.filterContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-5) 0;
+  margin-bottom: var(--space-8);
+  border-bottom: 1px solid var(--border-subtle);
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+.selectGroup {
+  display: flex;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.dropdown {
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  border: 1px solid var(--border-subtle);
+  padding: 8px var(--space-4);
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 0.875rem;
+  outline: none;
+  cursor: pointer;
+  min-width: 148px;
+  transition: border-color 0.2s ease-in-out;
+}
+
+.dropdown:hover,
+.dropdown:focus {
+  border-color: rgba(255, 140, 0, 0.4);
+}
+
+.clearButton {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  background: transparent;
+  color: var(--accent-primary);
+  border: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.clearButton:hover { opacity: 0.75; }
+
+.reloadIcon { font-size: 1rem; }
