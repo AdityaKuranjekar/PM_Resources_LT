@@ -1,9 +1,5 @@
 {
-  "/page": "app/page.js",
-  "/interviews/page": "app/interviews/page.js",
-  "/deep-ai/page": "app/deep-ai/page.js",
-  "/craft/page": "app/craft/page.js",
   "/craft-ai/page": "app/craft-ai/page.js",
-  "/case-studies/page": "app/case-studies/page.js",
-  "/blogs/page": "app/blogs/page.js"
+  "/page": "app/page.js",
+  "/craft/page": "app/craft/page.js"
 }

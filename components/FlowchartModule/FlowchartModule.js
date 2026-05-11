@@ -1,27 +1,23 @@
 "use client";
 import React, { useState, useRef } from 'react';
 import styles from './FlowchartModule.module.css';
-import Module1Content from './Module1Content';
 
-const FlowchartModule = ({ data }) => {
+const FlowchartModule = ({ data, mdxNodes = {} }) => {
   const [expandedId, setExpandedId] = useState(null);
   const headerRefs = useRef({});
 
   const toggleNode = (id) => {
     const opening = expandedId !== id;
-    const switching = opening && expandedId !== null; // a different module was open
+    const switching = opening && expandedId !== null;
 
     setExpandedId(opening ? id : null);
 
     if (opening) {
       if (switching) {
-        // Wait for the old module's collapse animation (0.42s) to finish
-        // before scrolling, otherwise the shrinking page pulls us to the bottom
         setTimeout(() => {
           headerRefs.current[id]?.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }, 440);
       } else {
-        // Nothing was open — scroll immediately after paint
         requestAnimationFrame(() => {
           requestAnimationFrame(() => {
             headerRefs.current[id]?.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -58,8 +54,8 @@ const FlowchartModule = ({ data }) => {
                 
                 <div className={styles.contentBlock}>
                   <div className={styles.contentDetails}>
-                    {module.id === 'module-1' ? (
-                      <Module1Content />
+                    {mdxNodes[module.id] ? (
+                      mdxNodes[module.id]
                     ) : (
                       <>
                         <p className={styles.description}>

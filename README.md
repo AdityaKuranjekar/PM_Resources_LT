@@ -17,23 +17,30 @@ The goal of CRAFT is to provide an interactive, aesthetically pleasing environme
 - **Design Paradigm**: Dark Mode / Monochrome Base / Saffron Accents / Glassmorphism
 - **Icons**: Custom inline SVGs
 
+## 🏗️ Scalable MDX Architecture
+
+The platform has been meticulously re-architected to separate **code from content**, ensuring infinite scalability as the resource library grows.
+- **`next-mdx-remote` Engine**: All course content is written in highly maintainable `.mdx` files stored in the `/content` directory.
+- **Server-Side Compilation**: Content is parsed and compiled instantly on the server, drastically reducing the JavaScript bundle size and ensuring blazing-fast load times.
+- **Reusable Premium Components**: The MDX compiler automatically maps raw text and custom tags directly to our bespoke `LearningComponents` library (Insight Cards, Interactive Mindmaps, Triple Intersects), maintaining 100% visual fidelity without cluttering the UI codebase.
+
 ## 📁 Current Structure
 
 ```
 PM_Resources/
 ├── app/                  # Next.js App Router (pages & global layouts)
+│   ├── craft/            # PM Modules route (Parses MDX dynamically)
 │   ├── globals.css       # Core design tokens and CSS variables
-│   ├── layout.js         # Root layout structure
 │   └── page.js           # Main landing page
+├── content/              # The Content Engine
+│   └── craft/            # Raw .mdx files defining the module curriculum
 ├── components/           # Modular React UI Components
-│   ├── Hero/             # Top-level introduction and branding
-│   ├── FlowchartModule/  # The core interactive learning engine
-│   ├── Navbar/           # Main navigation
-│   ├── Footer/           # Branding and contact form
-│   └── ...               # Additional UI elements
+│   ├── FlowchartModule/  # The core interactive learning engine wrapper
+│   ├── learning/         # The library of premium components mapped to MDX
+│   └── ...               # Additional UI elements (Navbar, Footer, Hero)
 ├── data/                 # Static content configuration
-│   └── modules.js        # Data array powering the learning modules
-└── public/               # Static assets (images, Swami Vivekananda hero image)
+│   └── modules.js        # High-level data array for curriculum flow
+└── public/               # Static assets
 ```
 
 ## 🧠 The Learning Engine (`FlowchartModule`)
@@ -56,16 +63,18 @@ The core of the CRAFT experience runs through the `FlowchartModule`.
    ```
 4. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## 🚀 Deployment (Render/Vercel)
+## 🚀 Deployment (Vercel)
 
-This application is built as a standard Next.js project and is highly optimized for Edge deployment.
+This application is built as a standard Next.js project and is highly optimized for Edge deployment on Vercel.
 
-**Steps for Render:**
-1. Create a new Web Service on Render.
-2. Connect this GitHub repository.
-3. Build Command: `npm run build`
-4. Start Command: `npm run start`
-5. (Optional) Set environment variables if connecting to an external database in the future.
+**Steps for Vercel:**
+1. Create an account on [Vercel](https://vercel.com/) and click **Add New → Project**.
+2. Connect your GitHub account and select this repository.
+3. Vercel will automatically detect that it is a Next.js project.
+4. Leave the default build settings as they are.
+5. Click **Deploy**.
+
+Vercel will automatically pull the code, build the optimized production version, and host it! Every future push to the `main` branch on GitHub will automatically trigger a new deployment.
 
 ## 📬 Contact & Forms
 

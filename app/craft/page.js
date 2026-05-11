@@ -2,11 +2,25 @@ import React from 'react';
 import Navbar from '../../components/Navbar/Navbar';
 import FlowchartModule from '../../components/FlowchartModule/FlowchartModule';
 import { modulesData } from '../../data/modules';
+import { getModuleContent } from '../../lib/content';
+import { MDXRemote } from 'next-mdx-remote/rsc';
+import * as LearningComponents from '../../components/learning/LearningComponents';
 
 export const metadata = { title: 'Craft | PM Resources' };
 
 export default function CraftPage() {
   const phaseData = modulesData[0]; // Phase 1
+
+  // Parse all MDX content on the server
+  const mdxNodes = {};
+  phaseData.modules.forEach(module => {
+    const source = getModuleContent('craft', module.id);
+    if (source) {
+      mdxNodes[module.id] = (
+        <MDXRemote source={source} components={LearningComponents} />
+      );
+    }
+  });
 
   return (
     <main>
@@ -15,7 +29,7 @@ export default function CraftPage() {
         <h1 style={{ fontSize: '2.5rem', color: 'var(--accent-primary)', marginBottom: '0.5rem' }}>{phaseData.phase}</h1>
         <p style={{ color: 'var(--text-secondary)', fontSize: '1.2rem' }}>{phaseData.subtitle}</p>
       </div>
-      <FlowchartModule data={phaseData.modules} />
+      <FlowchartModule data={phaseData.modules} mdxNodes={mdxNodes} />
     </main>
   );
 }
