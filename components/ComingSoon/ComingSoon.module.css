@@ -1,3 +1,7 @@
+/* ============================================================
+   ComingSoon — Elite SaaS Standard
+   ============================================================ */
+
 .container {
   min-height: 70vh;
   display: flex;
@@ -8,53 +12,69 @@
 
 .content {
   text-align: center;
-  max-width: 600px;
+  max-width: 560px;
+  /* Glassmorphism surface */
   background: var(--bg-surface);
-  border: 1px solid var(--border-subtle);
-  padding: 4rem 2rem;
-  border-radius: 12px;
   backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-subtle);
+  padding: 4rem 2.5rem;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md);
 }
 
 .iconWrapper {
-  font-size: 3rem;
+  font-size: 2.8rem;
   margin-bottom: 1.5rem;
-  animation: float 3s ease-in-out infinite;
+  animation: float 3.5s var(--ease-in-out) infinite;
 }
 
 .title {
-  font-size: 2.5rem;
+  font-size: clamp(2rem, 4vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: -0.035em;
   color: var(--text-primary);
   margin-bottom: 1rem;
 }
 
 .subtitle {
   color: var(--text-secondary);
-  font-size: 1.1rem;
-  line-height: 1.6;
+  font-size: 1rem;
+  line-height: 1.65;
   margin-bottom: 2.5rem;
 }
 
 .backBtn {
-  display: inline-block;
-  padding: 0.8rem 1.5rem;
-  background: var(--accent-muted);
-  color: var(--accent-primary);
-  border: 1px solid var(--accent-primary);
-  border-radius: 4px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 24px;
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+  box-shadow: var(--shadow-xs);
+  transition:
+    background 0.25s var(--ease-spring),
+    border-color 0.25s var(--ease-spring),
+    color 0.25s var(--ease-spring),
+    transform 0.25s var(--ease-spring),
+    box-shadow 0.25s var(--ease-spring);
 }
 
 .backBtn:hover {
-  background: var(--accent-primary);
-  color: var(--bg-dark);
+  background: var(--accent-saffron-muted);
+  border-color: rgba(255, 140, 0, 0.28);
+  color: var(--accent-saffron);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
 }
 
-@keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-  100% { transform: translateY(0px); }
+.backBtn:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
 }

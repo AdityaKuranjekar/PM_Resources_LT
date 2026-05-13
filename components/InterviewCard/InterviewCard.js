@@ -19,9 +19,11 @@ const InterviewCard = ({ company, question, answer }) => {
       </div>
       
       <div className={`${styles.answerContainer} ${isOpen ? styles.open : ''}`}>
-        <div className={styles.answerContent}>
-          <h4 className={styles.answerLabel}>Mock Solution:</h4>
-          <p className={styles.answerText}>{answer}</p>
+        <div className={styles.answerOverflow}>
+          <div className={styles.answerContent}>
+            <h4 className={styles.answerLabel}>Mock Solution:</h4>
+            <p className={styles.answerText}>{answer}</p>
+          </div>
         </div>
       </div>
     </div>

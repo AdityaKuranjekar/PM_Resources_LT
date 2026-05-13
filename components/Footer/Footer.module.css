@@ -1,8 +1,11 @@
-/* ---- Footer Layout ---- */
+/* ============================================================
+   Footer — Elite SaaS Standard
+   ============================================================ */
+
 .footer {
   border-top: 1px solid var(--border-subtle);
   margin-top: var(--space-20);
-  background: var(--bg-deep);
+  background: var(--bg-root);
 }
 
 /* ---- Contact Section ---- */
@@ -14,17 +17,18 @@
 }
 
 .contactTitle {
-  /* uses globals h2 clamp */
   color: var(--text-primary);
   margin-bottom: var(--space-3);
 }
 
 .contactSubtitle {
   color: var(--text-secondary);
-  font-size: 0.95rem;
+  font-size: 0.92rem;
+  line-height: 1.6;
   margin-bottom: var(--space-10);
 }
 
+/* ---- Form ---- */
 .form {
   display: flex;
   flex-direction: column;
@@ -43,13 +47,17 @@
   width: 100%;
   background: var(--bg-surface);
   border: 1px solid var(--border-subtle);
-  border-radius: 6px;
-  padding: 12px var(--space-4);
+  border-radius: var(--radius-sm);
+  padding: 11px var(--space-4);
   color: var(--text-primary);
-  font-family: inherit;
-  font-size: 0.9rem;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
   outline: none;
-  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  box-shadow: var(--shadow-xs);
+  transition:
+    border-color 0.25s var(--ease-spring),
+    background 0.25s var(--ease-spring),
+    box-shadow 0.25s var(--ease-spring);
   resize: none;
 }
 
@@ -58,30 +66,47 @@
   color: var(--text-muted);
 }
 
-.input:focus,
-.textarea:focus {
-  border-color: rgba(255, 140, 0, 0.5);
-  box-shadow: 0 0 0 3px rgba(255, 140, 0, 0.08);
+.input:hover,
+.textarea:hover {
+  border-color: var(--border-hover);
+  background: var(--bg-surface-hover);
 }
 
+.input:focus,
+.textarea:focus {
+  border-color: var(--border-focus);
+  box-shadow: var(--focus-ring);
+  background: var(--bg-surface-hover);
+}
+
+/* ---- Submit Button ---- */
 .submitBtn {
   align-self: flex-end;
-  padding: 11px var(--space-8);
-  background: var(--accent-primary);
-  color: #000;
+  padding: 10px var(--space-8);
+  background: var(--accent-saffron);
+  color: var(--bg-root);
   border: none;
-  border-radius: 6px;
-  font-size: 0.9rem;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
   font-weight: 700;
-  letter-spacing: 0.02em;
+  letter-spacing: -0.005em;
   cursor: pointer;
-  transition: all 0.2s ease-in-out;
+  transition:
+    background 0.25s var(--ease-spring),
+    transform 0.25s var(--ease-spring),
+    box-shadow 0.25s var(--ease-spring);
 }
 
 .submitBtn:hover {
-  background: var(--accent-secondary);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px var(--accent-glow);
+  background: #e07c00;
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-accent);
+}
+
+.submitBtn:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
 }
 
 /* ---- Divider ---- */
@@ -107,24 +132,24 @@
 .brandBlock {}
 
 .footerLogo {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   font-weight: 700;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
   color: var(--text-primary);
   margin-bottom: var(--space-3);
 }
-.footerLogo span { color: var(--accent-primary); }
+.footerLogo span { color: var(--accent-saffron); }
 
 .bio {
   color: var(--text-secondary);
-  font-size: 0.875rem;
+  font-size: 0.855rem;
   max-width: 340px;
   line-height: 1.65;
 }
 
 .copyright {
   color: var(--text-muted);
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   margin-top: var(--space-5);
 }
 
@@ -136,42 +161,55 @@
   gap: var(--space-4);
 }
 
+/* Category label treatment */
 .socialLabel {
-  color: var(--text-muted);
-  font-size: 0.75rem;
+  font-size: 11px;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.07em;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
 }
 
 .socialLinks {
   display: flex;
-  gap: var(--space-4);
+  gap: var(--space-3);
 }
 
 .socialIcon {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 38px;
-  height: 38px;
+  width: 36px;
+  height: 36px;
   background: var(--bg-surface);
   border: 1px solid var(--border-subtle);
-  border-radius: 8px;
+  border-radius: var(--radius-md);
   color: var(--text-secondary);
-  transition: all 0.2s ease-in-out;
+  box-shadow: var(--shadow-xs);
+  transition:
+    border-color 0.25s var(--ease-spring),
+    color 0.25s var(--ease-spring),
+    background 0.25s var(--ease-spring),
+    transform 0.25s var(--ease-spring),
+    box-shadow 0.25s var(--ease-spring);
 }
 
 .socialIcon:hover {
-  border-color: rgba(255, 140, 0, 0.5);
-  color: var(--accent-primary);
-  background: var(--accent-muted);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px var(--accent-glow);
+  border-color: rgba(255, 140, 0, 0.30);
+  color: var(--accent-saffron);
+  background: var(--acc-saffron-muted, var(--accent-saffron-muted));
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-accent);
+}
+
+.socialIcon:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
 }
 
 .socialIcon svg {
-  width: 18px;
-  height: 18px;
+  width: 17px;
+  height: 17px;
   fill: currentColor;
 }
 

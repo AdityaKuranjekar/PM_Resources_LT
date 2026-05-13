@@ -1,5 +1,7 @@
-/* Re-uses the consolidated styles in InterviewCard.module.css */
-/* These classes are defined there for shared use */
+/* ============================================================
+   InterviewFilter — Elite SaaS Standard
+   ============================================================ */
+
 .filterContainer {
   display: flex;
   justify-content: space-between;
@@ -21,19 +23,28 @@
   background: var(--bg-surface);
   color: var(--text-primary);
   border: 1px solid var(--border-subtle);
-  padding: 8px var(--space-4);
-  border-radius: 6px;
-  font-family: inherit;
-  font-size: 0.875rem;
+  padding: 7px var(--space-4);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
   outline: none;
   cursor: pointer;
   min-width: 148px;
-  transition: border-color 0.2s ease-in-out;
+  box-shadow: var(--shadow-xs);
+  transition:
+    border-color 0.25s var(--ease-spring),
+    background 0.25s var(--ease-spring),
+    box-shadow 0.25s var(--ease-spring);
 }
 
-.dropdown:hover,
+.dropdown:hover {
+  border-color: var(--border-hover);
+  background: var(--bg-surface-hover);
+}
+
 .dropdown:focus {
-  border-color: rgba(255, 140, 0, 0.4);
+  border-color: var(--border-focus);
+  box-shadow: var(--focus-ring);
 }
 
 .clearButton {
@@ -41,14 +52,26 @@
   align-items: center;
   gap: var(--space-2);
   background: transparent;
-  color: var(--accent-primary);
+  color: var(--text-secondary);
   border: none;
-  font-size: 0.875rem;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
   font-weight: 500;
   cursor: pointer;
-  transition: opacity 0.2s ease-in-out;
+  transition:
+    color 0.2s var(--ease-in-out),
+    opacity 0.2s var(--ease-in-out);
 }
 
-.clearButton:hover { opacity: 0.75; }
+.clearButton:hover {
+  color: var(--accent-saffron);
+  opacity: 0.9;
+}
+
+.clearButton:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+  border-radius: 2px;
+}
 
 .reloadIcon { font-size: 1rem; }

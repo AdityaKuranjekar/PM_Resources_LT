@@ -1,4 +1,8 @@
-/* ---- Hero Layout ---- */
+/* ============================================================
+   Hero — Elite SaaS Standard
+   ============================================================ */
+
+/* ---- Layout ---- */
 .hero {
   display: flex;
   min-height: calc(100vh - 65px);
@@ -7,8 +11,8 @@
   justify-content: space-between;
   position: relative;
   overflow: hidden;
-  /* Fade hero bg into transparent so stars emerge as user scrolls */
-  background: linear-gradient(to bottom, #09090b 50%, transparent 100%);
+  /* Subtle ambient light from above — zero heavy gradient */
+  background: linear-gradient(to bottom, rgba(255,140,0,0.03) 0%, transparent 60%);
 }
 
 /* ---- Text Content ---- */
@@ -16,39 +20,40 @@
   flex: 1;
   max-width: 55%;
   z-index: 2;
-  animation: fadeInUp 0.8s ease-out both;
+  animation: fadeInUp 0.7s var(--ease-out-expo) both;
 }
 
 .title {
-  /* clamp() handled by globals h1 */
+  /* Tightest letter-spacing for elite density */
   margin-bottom: var(--space-5);
-  background: linear-gradient(135deg, #ffffff 60%, #a1a1aa);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--text-primary);
+  /* No gradient text — clean, premium */
 }
 
 .subtitle {
-  font-size: clamp(0.85rem, 1.5vw, 1rem);
+  font-size: clamp(0.875rem, 1.5vw, 1rem);
   color: var(--text-secondary);
   font-weight: 400;
   margin-bottom: var(--space-10);
-  letter-spacing: 0.01em;
+  line-height: 1.65;
+  letter-spacing: 0;
 }
 
 .jokeContainer {
   margin-top: var(--space-8);
   padding: var(--space-5) var(--space-6);
-  background: var(--accent-muted);
-  border: 1px solid rgba(255, 140, 0, 0.2);
-  border-radius: 10px;
+  background: var(--bg-surface);
   backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
   max-width: 90%;
+  box-shadow: var(--shadow-sm);
 }
 
 .joke {
   font-style: italic;
-  font-size: clamp(0.9rem, 1.3vw, 1rem);
+  font-size: clamp(0.875rem, 1.3vw, 0.95rem);
   color: var(--text-secondary);
   line-height: 1.65;
 }
@@ -60,8 +65,8 @@
   justify-content: flex-end;
   align-items: flex-end;
   z-index: 1;
-  animation: fadeIn 1.2s ease-out both;
-  animation-delay: 0.2s;
+  animation: fadeIn 1s var(--ease-out-expo) both;
+  animation-delay: 0.15s;
 }
 
 .imageWrapper {
@@ -76,9 +81,12 @@
   max-height: 50vh;
   height: auto;
   object-fit: cover;
-  border-radius: 20px;
-  /* Stronger warm lighting around the image */
-  box-shadow: 0 0 50px 10px rgba(255, 140, 0, 0.3);
+  border-radius: var(--radius-xl);
+  /* Refined: subtle shadow, no neon glow ring */
+  box-shadow:
+    0 0 0 1px var(--border-subtle),
+    0 8px 32px rgba(0, 0, 0, 0.6),
+    0 0 60px 8px rgba(255, 140, 0, 0.10);
 }
 
 .quoteWrapper {
@@ -89,9 +97,9 @@
 
 .imageQuote {
   font-style: italic;
-  font-size: clamp(0.95rem, 1.2vw, 1.1rem);
-  color: #FF8C00;
-  line-height: 1.5;
+  font-size: clamp(0.875rem, 1.2vw, 1rem);
+  color: var(--accent-saffron);
+  line-height: 1.55;
   font-weight: 500;
 }
 
