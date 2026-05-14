@@ -17,7 +17,7 @@ const Navbar = () => {
 
   return (
     <nav className={styles.navbar}>
-      <Link href="https://adityakuranjekar.github.io/" target="_blank" rel="noopener noreferrer" className={styles.logo}>
+      <Link href="/" className={styles.logo}>
         Aditya K <span>&lt;3</span>
       </Link>
 

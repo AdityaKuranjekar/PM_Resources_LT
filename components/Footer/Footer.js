@@ -58,9 +58,9 @@ const Footer = () => {
 
       {/* Bottom Section */}
       <div className={styles.bottomSection}>
-        <a href="https://adityakuranjekar.github.io/" target="_blank" rel="noopener noreferrer" className={styles.brand} style={{textDecoration: 'none'}}>
+        <Link href="/" className={styles.brand} style={{textDecoration: 'none'}}>
           Aditya K <span>&lt;3</span>
-        </a>
+        </Link>
         <div className={styles.copyright}>© 2026. Built in India.</div>
       </div>
     </footer>
