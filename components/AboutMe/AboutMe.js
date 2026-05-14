@@ -8,7 +8,9 @@ const AboutMe = () => {
   const [glare, setGlare] = useState({ x: '50%', y: '50%', opacity: 0 });
 
   const handleMouseMove = (e) => {
-    if (!cardRef.current) return;
+    // Disable 3D tilt on mobile devices to prevent stuck states on touch
+    if (!cardRef.current || window.innerWidth < 850) return;
+    
     const rect = cardRef.current.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
