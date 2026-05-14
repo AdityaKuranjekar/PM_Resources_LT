@@ -1,92 +1,100 @@
 /* ============================================================
-   InterviewCard — Elite SaaS Standard
+   InterviewCard — Premium List View Standard
    ============================================================ */
 
-/* ---- Card Container ---- */
 .cardContainer {
-  background: var(--bg-surface);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-md);
-  margin-bottom: var(--space-4);
+  background: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  border-radius: 12px;
   overflow: hidden;
-  box-shadow: var(--shadow-sm);
-  transition:
-    background 0.3s var(--ease-spring),
-    border-color 0.3s var(--ease-spring),
-    transform 0.3s var(--ease-spring),
-    box-shadow 0.3s var(--ease-spring);
-  will-change: transform;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .cardContainer:hover {
-  background: var(--bg-surface-hover);
-  border-color: var(--border-hover);
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-md);
+  border-color: #D1D5DB;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.06);
 }
 
-/* ---- Card Header ---- */
+/* ---- Card Header Grid ---- */
 .cardHeader {
-  padding: var(--space-6);
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-4);
+  padding: 1.5rem;
+  display: grid;
+  grid-template-columns: 100px 1fr 140px; /* Fixed badge, fluid question, fixed button */
+  gap: 1.5rem;
+  align-items: flex-start; /* Align to top so multi-line text doesn't mess up the button position */
 }
 
-/* ---- Company Badge ---- */
+/* ---- Company Badge — Brand Specific ---- */
 .companyBadge {
-  align-self: flex-start;
-  /* Category label treatment */
   font-size: 11px;
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--accent-saffron);
-  background: var(--accent-saffron-muted);
-  border: 1px solid rgba(255, 140, 0, 0.18);
-  padding: 3px 10px;
-  border-radius: var(--radius-pill);
+  letter-spacing: 0.08em;
+  padding: 6px 12px;
+  border-radius: 6px; /* Slightly squarer, more modern */
+  text-align: center;
+  /* Default: neutral */
+  background: rgba(37, 99, 235, 0.05);
+  color: #2563EB;
+  border: 1px solid rgba(37, 99, 235, 0.1);
+  margin-top: 2px; /* Align with first line of text */
+}
+
+/* Stripe */
+.companyBadge[data-company="Stripe"] {
+  background: rgba(99, 91, 255, 0.06);
+  color: #635BFF;
+  border-color: rgba(99, 91, 255, 0.15);
+}
+
+/* Meta */
+.companyBadge[data-company="Meta"] {
+  background: rgba(8, 102, 255, 0.06);
+  color: #0866FF;
+  border-color: rgba(8, 102, 255, 0.15);
+}
+
+/* Google */
+.companyBadge[data-company="Google"] {
+  background: rgba(66, 133, 244, 0.06);
+  color: #4285F4;
+  border-color: rgba(66, 133, 244, 0.15);
 }
 
 /* ---- Question Text ---- */
 .questionText {
-  color: var(--text-primary);
-  font-size: clamp(0.95rem, 1.5vw, 1.05rem);
-  font-weight: 500;
-  line-height: 1.55;
+  color: #111827;
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.5;
   letter-spacing: -0.01em;
+  margin: 0;
 }
 
 /* ---- Toggle Button ---- */
 .toggleBtn {
-  align-self: flex-start;
-  background: transparent;
-  color: var(--text-secondary);
-  border: 1px solid var(--border-subtle);
-  padding: 6px var(--space-4);
-  border-radius: var(--radius-sm);
-  font-size: 0.8rem;
-  font-weight: 500;
+  justify-self: end;
+  background: #F3F4F6;
+  color: #374151;
+  border: 1px solid transparent;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
   cursor: pointer;
-  transition:
-    background 0.25s var(--ease-spring),
-    color 0.25s var(--ease-spring),
-    border-color 0.25s var(--ease-spring),
-    transform 0.25s var(--ease-spring),
-    box-shadow 0.25s var(--ease-spring);
+  font-family: inherit;
+  transition: all 0.2s ease;
+  width: 100%;
 }
 
 .toggleBtn:hover {
-  background: var(--accent-saffron-muted);
-  color: var(--accent-saffron);
-  border-color: rgba(255, 140, 0, 0.30);
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-xs);
+  background: #E5E7EB;
+  color: #111827;
 }
 
-.toggleBtn:focus-visible {
-  outline: none;
-  box-shadow: var(--focus-ring);
+.toggleBtn:active {
+  transform: scale(0.98);
 }
 
 /* ---- Expandable Answer ---- */
@@ -94,10 +102,8 @@
   display: grid;
   grid-template-rows: 0fr;
   opacity: 0;
-  /* Grid-based accordion — no max-height snap */
-  transition:
-    grid-template-rows 0.4s var(--ease-spring),
-    opacity 0.3s var(--ease-in-out);
+  transition: grid-template-rows 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.28s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .answerContainer.open {
@@ -105,99 +111,39 @@
   opacity: 1;
 }
 
-.answerOverflow {
-  overflow: hidden;
-}
+.answerOverflow { overflow: hidden; }
 
 .answerContent {
-  padding: var(--space-6);
-  border-top: 1px solid var(--border-subtle);
+  padding: 1.5rem 2rem 1.5rem 100px; /* Offset to align with the question text */
+  background: #FAFAFA;
+  border-top: 1px solid #E5E7EB;
 }
 
-/* ---- Answer Label (category style) ---- */
+/* ---- Answer Label ---- */
 .answerLabel {
   font-size: 11px;
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--accent-saffron);
-  margin-bottom: var(--space-4);
+  letter-spacing: 0.08em;
+  color: #6B7280;
+  margin-bottom: 0.75rem;
+  display: block;
 }
 
 .answerText {
-  color: var(--text-secondary);
-  font-size: 0.92rem;
+  color: #374151;
+  font-size: 15px;
   line-height: 1.7;
+  margin: 0;
 }
 
-/* ---- Filter Bar ---- */
-.filterContainer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: var(--space-5) 0;
-  margin-bottom: var(--space-8);
-  border-bottom: 1px solid var(--border-subtle);
-  flex-wrap: wrap;
-  gap: var(--space-4);
+@media (max-width: 640px) {
+  .cardHeader {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1.25rem;
+  }
+  .companyBadge { justify-self: start; }
+  .toggleBtn { justify-self: stretch; margin-top: 0.5rem; }
+  .answerContent { padding: 1.25rem; }
 }
-
-.selectGroup {
-  display: flex;
-  gap: var(--space-3);
-  flex-wrap: wrap;
-}
-
-.dropdown {
-  background: var(--bg-surface);
-  color: var(--text-primary);
-  border: 1px solid var(--border-subtle);
-  padding: 7px var(--space-4);
-  border-radius: var(--radius-sm);
-  font-family: var(--font-sans);
-  font-size: 0.85rem;
-  outline: none;
-  cursor: pointer;
-  min-width: 150px;
-  box-shadow: var(--shadow-xs);
-  transition:
-    border-color 0.25s var(--ease-spring),
-    box-shadow 0.25s var(--ease-spring);
-}
-
-.dropdown:hover {
-  border-color: var(--border-hover);
-}
-
-.dropdown:focus {
-  border-color: var(--border-focus);
-  box-shadow: var(--focus-ring);
-}
-
-.clearButton {
-  display: flex;
-  align-items: center;
-  gap: var(--space-2);
-  background: transparent;
-  color: var(--text-secondary);
-  border: none;
-  font-size: 0.85rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition:
-    color 0.2s var(--ease-in-out),
-    opacity 0.2s var(--ease-in-out);
-}
-
-.clearButton:hover {
-  color: var(--accent-saffron);
-  opacity: 0.9;
-}
-
-.clearButton:focus-visible {
-  outline: none;
-  box-shadow: var(--focus-ring);
-  border-radius: 2px;
-}
-
-.reloadIcon { font-size: 1rem; }

@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './Navbar.module.css';
 import Link from 'next/link';
 
@@ -13,31 +13,11 @@ const navLinks = [
 ];
 
 const Navbar = () => {
-  const [scrolled,        setScrolled]        = useState(false);
-  const [mobileMenuOpen,  setMobileMenuOpen]  = useState(false);
-  const popoverRef = useRef(null);
-
-  /* Scroll listener */
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener('scroll', onScroll);
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
-
-  /* Close popover when clicking outside */
-  useEffect(() => {
-    const onClickOutside = (e) => {
-      if (popoverRef.current && !popoverRef.current.contains(e.target)) {
-        setMobileMenuOpen(false);
-      }
-    };
-    document.addEventListener('mousedown', onClickOutside);
-    return () => document.removeEventListener('mousedown', onClickOutside);
-  }, []);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <nav className={`${styles.navbar} ${scrolled ? styles.scrolled : ''}`}>
-      <Link href="/" className={styles.logo}>
+    <nav className={styles.navbar}>
+      <Link href="https://adityakuranjekar.github.io/" target="_blank" rel="noopener noreferrer" className={styles.logo}>
         Aditya K <span>&lt;3</span>
       </Link>
 
@@ -50,10 +30,8 @@ const Navbar = () => {
         ))}
       </div>
 
-      {/* Right: CTA + hamburger */}
-      <div className={styles.navRight} ref={popoverRef}>
-        <button className={styles.ctaButton}>Join Community</button>
-
+      {/* Mobile Menu Toggle (Simplified for minimalism) */}
+      <div className={styles.navRight}>
         <button
           className={styles.hamburger}
           onClick={() => setMobileMenuOpen(prev => !prev)}
@@ -61,10 +39,8 @@ const Navbar = () => {
         >
           <span className={`${styles.bar} ${mobileMenuOpen ? styles.open : ''}`} />
           <span className={`${styles.bar} ${mobileMenuOpen ? styles.open : ''}`} />
-          <span className={`${styles.bar} ${mobileMenuOpen ? styles.open : ''}`} />
         </button>
 
-        {/* Compact popover dropdown */}
         {mobileMenuOpen && (
           <div className={styles.mobilePopover}>
             <div className={styles.mobileMenu}>
@@ -73,21 +49,11 @@ const Navbar = () => {
                   key={i}
                   href={link.path}
                   className={styles.mobileLink}
-                  style={{ animationDelay: `${i * 40}ms` }}
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {link.name}
                 </Link>
               ))}
-              <div className={styles.mobileDivider} />
-              <Link
-                href="#"
-                className={styles.mobileLink}
-                style={{ animationDelay: `${navLinks.length * 40}ms` }}
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Join Community
-              </Link>
             </div>
           </div>
         )}

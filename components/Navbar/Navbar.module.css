@@ -1,188 +1,99 @@
 /* ============================================================
-   Navbar — Elite SaaS Standard
+   Navbar — Antigravity Minimalist Light Standard
    ============================================================ */
 
 .navbar {
-  position: sticky;
+  position: absolute;
   top: 0;
+  left: 0;
+  width: 100%;
   z-index: 1000;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: var(--space-5) var(--space-16);
+  padding: 2rem 4rem;
   background: transparent;
-  border-bottom: 1px solid transparent;
-  transition:
-    background 0.4s var(--ease-spring),
-    border-color 0.4s var(--ease-spring),
-    backdrop-filter 0.4s var(--ease-spring);
-}
-
-.navbar.scrolled {
-  background: rgba(0, 0, 0, 0.75);
-  backdrop-filter: blur(16px) saturate(180%);
-  -webkit-backdrop-filter: blur(16px) saturate(180%);
-  border-bottom: 1px solid var(--border-subtle);
-  box-shadow: 0 1px 0 var(--border-subtle), var(--shadow-xs);
 }
 
 /* ---- Logo ---- */
 .logo {
-  font-size: 1.05rem;
-  font-weight: 700;
+  font-size: 1.1rem;
+  font-weight: 600;
   letter-spacing: -0.03em;
   color: var(--text-primary);
   z-index: 1001;
-  transition: opacity 0.2s var(--ease-in-out);
+  transition: opacity 0.2s ease-in-out;
 }
-.logo:hover { opacity: 0.85; }
-.logo span { color: var(--accent-saffron); }
+.logo:hover { opacity: 0.7; }
+.logo span { color: var(--accent-blue); }
 
 /* ---- Desktop Links ---- */
 .desktopNav {
   display: flex;
-  gap: var(--space-8);
+  gap: 2.5rem;
+  justify-content: flex-end;
+  flex: 1;
+  padding-right: 2rem;
 }
 
 .navLink {
-  color: var(--text-secondary);
-  font-size: 0.875rem;
+  color: var(--text-primary);
+  font-size: 14px;
   font-weight: 500;
-  transition:
-    color 0.2s var(--ease-in-out);
-  position: relative;
-  padding-bottom: 2px;
+  transition: opacity 0.2s ease;
 }
 
-.navLink::after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 0;
-  height: 1px;
-  background: var(--accent-saffron);
-  transition: width 0.3s var(--ease-spring);
-}
+.navLink:hover { opacity: 0.6; }
 
-.navLink:hover { color: var(--text-primary); }
-.navLink:hover::after { width: 100%; }
-.navLink:focus-visible { outline: none; box-shadow: var(--focus-ring); border-radius: 2px; }
-
-/* ---- Right Actions ---- */
+/* ---- Mobile Menu Support ---- */
 .navRight {
-  display: flex;
-  align-items: center;
-  gap: var(--space-4);
-  z-index: 1001;
-}
-
-.ctaButton {
-  background: transparent;
-  color: var(--text-secondary);
-  border: 1px solid var(--border-subtle);
-  padding: 6px var(--space-4);
-  border-radius: var(--radius-sm);
-  font-size: 0.825rem;
-  font-weight: 500;
-  cursor: pointer;
-  box-shadow: var(--shadow-xs);
-  transition:
-    background 0.25s var(--ease-spring),
-    border-color 0.25s var(--ease-spring),
-    color 0.25s var(--ease-spring),
-    transform 0.25s var(--ease-spring);
-}
-
-.ctaButton:hover {
-  background: var(--accent-saffron-muted);
-  border-color: rgba(255, 140, 0, 0.28);
-  color: var(--accent-saffron);
-  transform: translateY(-1px);
-}
-
-.ctaButton:focus-visible {
-  outline: none;
-  box-shadow: var(--focus-ring);
-}
-
-/* ---- Hamburger ---- */
-.hamburger {
   display: none;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 22px;
-  height: 16px;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 0;
 }
-
-.bar {
-  display: block;
-  width: 100%;
-  height: 1.5px;
-  background: var(--text-secondary);
-  border-radius: 2px;
-  transition: all 0.28s var(--ease-spring);
-  transform-origin: center;
-}
-
-.bar.open:nth-child(1) { transform: translateY(7.25px) rotate(45deg); }
-.bar.open:nth-child(2) { opacity: 0; transform: scaleX(0); }
-.bar.open:nth-child(3) { transform: translateY(-7.25px) rotate(-45deg); }
-
-/* ---- Mobile Popover Dropdown ---- */
-.mobilePopover { display: none; }
 
 @media (max-width: 1024px) {
-  .navbar { padding: var(--space-5) var(--space-8); }
+  .navbar { padding: 1.5rem 2rem; }
   .desktopNav { display: none; }
-  .hamburger { display: flex; }
+  .navRight { display: flex; align-items: center; z-index: 1001; }
 
-  .mobilePopover {
-    display: block;
-    position: absolute;
-    top: calc(100% + 8px);
-    right: var(--space-8);
-    width: min(300px, calc(100vw - var(--space-8) * 2));
-    background: rgba(10, 10, 10, 0.92);
-    backdrop-filter: blur(20px) saturate(180%);
-    -webkit-backdrop-filter: blur(20px) saturate(180%);
-    border: 1px solid var(--border-subtle);
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    animation: fadeInUp 0.22s var(--ease-spring);
-    box-shadow: var(--shadow-md), 0 0 0 1px rgba(255, 255, 255, 0.04);
-  }
-
-  .mobileMenu {
+  .hamburger {
     display: flex;
     flex-direction: column;
-    padding: var(--space-3) 0;
+    justify-content: space-between;
+    width: 24px;
+    height: 12px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  .bar {
+    width: 100%;
+    height: 1.5px;
+    background: var(--text-primary);
+    transition: all 0.2s ease;
+  }
+
+  .bar.open:nth-child(1) { transform: translateY(5px) rotate(45deg); }
+  .bar.open:nth-child(2) { transform: translateY(-5px) rotate(-45deg); }
+
+  .mobilePopover {
+    position: absolute;
+    top: calc(100% + 1rem);
+    right: 2rem;
+    width: min(250px, calc(100vw - 4rem));
+    background: var(--bg-root);
+    border: 1px solid rgba(0,0,0,0.05);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    padding: 1rem 0;
   }
 
   .mobileLink {
     display: block;
-    padding: var(--space-4) var(--space-6);
-    font-size: 0.92rem;
+    padding: 0.75rem 1.5rem;
+    font-size: 14px;
     font-weight: 500;
-    color: var(--text-secondary);
-    transition:
-      color 0.2s var(--ease-in-out),
-      background 0.2s var(--ease-in-out);
-    animation: fadeIn 0.3s var(--ease-spring) both;
-  }
-
-  .mobileLink:hover {
     color: var(--text-primary);
-    background: rgba(255, 255, 255, 0.04);
-  }
-
-  .mobileDivider {
-    height: 1px;
-    background: var(--border-subtle);
-    margin: var(--space-2) 0;
   }
 }

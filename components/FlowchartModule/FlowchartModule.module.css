@@ -1,20 +1,17 @@
 /* ============================================================
-   FlowchartModule — Elite SaaS Standard
+   FlowchartModule — High-Contrast Linear Standard
    ============================================================ */
 
-/* ---- Outer Container ---- */
 .flowchartContainer {
   max-width: 860px;
-  margin: var(--space-16) auto var(--space-24);
-  padding: 0 var(--space-8);
+  margin: 4rem auto;
+  padding: 0 2rem;
   display: flex;
   flex-direction: column;
-  gap: var(--space-5);
+  gap: 1rem;
 }
 
-/* ============================================================
-   Flowchart Node
-   ============================================================ */
+/* ---- Node Wrapper ---- */
 .nodeWrapper {
   position: relative;
   display: flex;
@@ -25,60 +22,54 @@
 .nodeHeader {
   display: flex;
   align-items: center;
-  gap: var(--space-5);
-  padding: var(--space-4) var(--space-5);
-  background: var(--bg-surface);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-md);
+  gap: 1.25rem;
+  padding: 1.125rem 1.5rem;
+  background: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  border-radius: 10px;
   cursor: pointer;
-  box-shadow: var(--shadow-sm);
-  /* Spring easing — no flat linear */
-  transition:
-    background 0.3s var(--ease-spring),
-    border-color 0.3s var(--ease-spring),
-    transform 0.3s var(--ease-spring),
-    box-shadow 0.3s var(--ease-spring);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   user-select: none;
-  will-change: transform;
+  position: relative;
+  z-index: 2;
 }
 
 .nodeHeader:hover {
-  background: var(--bg-surface-hover);
-  border-color: var(--border-hover);
+  border-color: #D1D5DB;
   transform: translateY(-1px);
-  box-shadow: var(--shadow-md);
-}
-
-.nodeHeader:focus-visible {
-  outline: none;
-  box-shadow: var(--focus-ring);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
 }
 
 .nodeHeader.active {
-  background: var(--bg-surface-hover);
-  border-color: var(--border-hover);
+  border-color: #D1D5DB;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
 }
 
 /* ---- Bullet Dot ---- */
 .nodeBullet {
-  width: 8px;
-  height: 8px;
+  width: 9px;
+  height: 9px;
   border-radius: 50%;
-  background: transparent;
-  border: 1.5px solid var(--text-disabled);
+  background: #FFFFFF;
+  border: 1.5px solid #A1A1AA;
   flex-shrink: 0;
-  transition:
-    border-color 0.25s var(--ease-spring),
-    background 0.25s var(--ease-spring);
+  transition: border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              background 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.nodeHeader:hover .nodeBullet,
 .nodeHeader.active .nodeBullet {
-  border-color: var(--accent-saffron);
-  background: var(--accent-saffron);
+  border-color: var(--accent-blue);
+  background: var(--accent-blue);
+  box-shadow: 0 0 8px rgba(37, 99, 235, 0.5);
 }
 
-/* ---- Node Title Area ---- */
+/* ---- Title Area ---- */
 .nodeTitleContainer {
   display: flex;
   flex-direction: column;
@@ -87,31 +78,31 @@
 }
 
 .nodeTitle {
-  font-size: 0.92rem;
-  font-weight: 500;
-  color: var(--text-primary);
-  letter-spacing: -0.015em;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #111827;
+  letter-spacing: -0.01em;
+  margin: 0;
 }
 
-/* Sub-label — category style */
 .nodeFocus {
   font-size: 11px;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--text-muted);
+  letter-spacing: 0.08em;
+  color: #71717A;
+  margin: 0;
 }
 
 /* ============================================================
-   Grid Accordion Expand — No max-height snap
+   Grid Accordion — Smooth Expand
    ============================================================ */
 .nodeContentWrapper {
   display: grid;
   grid-template-rows: 0fr;
   opacity: 0;
-  transition:
-    grid-template-rows 0.42s var(--ease-spring),
-    opacity 0.3s var(--ease-in-out);
+  transition: grid-template-rows 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .nodeContentWrapper.expanded {
@@ -125,370 +116,119 @@
 }
 
 /* ============================================================
-   Connector Line
+   Light Reader State — Connector + Content Block
    ============================================================ */
+
+/* Connector line */
 .connectorLine {
   width: 36px;
   flex-shrink: 0;
   margin-left: 28px;
-  border-left: 1px solid var(--border-subtle);
-  border-bottom: 1px solid var(--border-subtle);
+  border-left: 2px solid #D1D5DB;
+  border-bottom: 2px solid #D1D5DB;
   border-bottom-left-radius: 14px;
   min-height: 52px;
   margin-bottom: 3.5rem;
-  transition: opacity 0.4s var(--ease-in-out) 0.1s;
+  transition: border-color 0.4s ease;
 }
 
-/* ============================================================
-   Content Block — Glassmorphism
-   ============================================================ */
+/* Expanded area */
 .contentBlock {
   flex: 1;
-  margin-left: var(--space-4);
-  margin-top: var(--space-4);
-  margin-bottom: var(--space-4);
-  /* Glassmorphism surface */
-  background: var(--bg-surface);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-md);
-  padding: var(--space-6) var(--space-8);
-  box-shadow: var(--shadow-sm);
-  transition: border-color 0.25s var(--ease-spring);
+  margin-left: 1rem;
+  margin-top: 0;      /* Flush against the header when active */
+  margin-bottom: 1rem;
+  background: #FAFAFA;
+  border: 1px solid #E5E7EB;
+  border-top: none;   /* Seamless join with the header */
+  border-radius: 0 0 10px 10px;
+  padding: 2rem;
+  transition: background 0.4s ease;
 }
 
-.contentBlock:hover {
-  border-color: var(--border-hover);
+.contentDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
-/* ---- Description ---- */
+/* ---- Light Mode Text ---- */
 .description {
-  color: var(--text-secondary);
-  margin-bottom: var(--space-6);
-  font-size: 0.92rem;
+  color: #374151;
+  font-size: 15px;
   line-height: 1.7;
 }
 
-/* ---- Image Placeholder ---- */
+/* ---- Light Sub-tags / Pills ---- */
+.tag, .pill {
+  display: inline-block;
+  background: #F3F4F6;
+  color: #1F2937;
+  font-weight: 500;
+  font-size: 13px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  margin: 2px;
+  border: 1px solid #E5E7EB;
+}
+
 .imagePlaceholder {
   width: 100%;
-  height: 200px;
-  background: rgba(0, 0, 0, 0.3);
-  border: 1px dashed var(--border-subtle);
-  border-radius: var(--radius-md);
+  height: 180px;
+  background: #F9FAFB;
+  border: 1px dashed #D1D5DB;
+  border-radius: 8px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: var(--text-muted);
+  color: #6B7280;
   font-size: 0.82rem;
-  gap: var(--space-2);
-  margin-bottom: var(--space-6);
-  transition: border-color 0.25s var(--ease-spring);
+  gap: 0.5rem;
 }
 
-.imagePlaceholder:hover {
-  border-color: rgba(255, 140, 0, 0.25);
-}
-
-.placeholderIcon { font-size: 1.8rem; }
-
-/* ---- Drive Button ---- */
 .driveButton {
   display: inline-flex;
   align-items: center;
-  gap: var(--space-2);
-  padding: 8px var(--space-5);
+  gap: 0.5rem;
+  padding: 8px 20px;
   background: transparent;
-  color: var(--accent-saffron);
-  border: 1px solid rgba(255, 140, 0, 0.28);
-  border-radius: var(--radius-sm);
-  font-size: 11px;
+  color: var(--accent-blue);
+  border: 1px solid var(--accent-blue);
+  border-radius: 999px;
+  font-size: 12px;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  transition:
-    background 0.25s var(--ease-spring),
-    color 0.25s var(--ease-spring),
-    border-color 0.25s var(--ease-spring),
-    transform 0.25s var(--ease-spring),
-    box-shadow 0.25s var(--ease-spring);
+  letter-spacing: 0.08em;
+  transition: background 0.2s ease, color 0.2s ease;
+  text-decoration: none;
 }
 
 .driveButton:hover {
-  background: var(--accent-saffron);
-  color: var(--bg-root);
-  border-color: var(--accent-saffron);
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-accent);
+  background: var(--accent-blue);
+  color: #FFFFFF;
 }
 
-.driveButton:focus-visible {
-  outline: none;
-  box-shadow: var(--focus-ring);
+/* ---- Light PM Insight Callout ---- */
+.insightBlock {
+  background: rgba(37, 99, 235, 0.05);
+  border-left: 3px solid var(--accent-blue);
+  padding: 16px 20px;
+  border-radius: 0 8px 8px 0;
+  margin-bottom: 1rem;
 }
 
-/* ============================================================
-   Learning Content Structure
-   ============================================================ */
-.learningModule {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-8);
-  color: var(--text-primary);
-}
-
-.moduleHeading {
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: var(--text-primary);
-  letter-spacing: -0.025em;
-  margin-bottom: var(--space-2);
-}
-
-.visualCard {
-  background: var(--bg-surface);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-lg);
-  padding: var(--space-6);
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-6);
-  box-shadow: var(--shadow-sm);
-}
-
-.intersectionDiagram {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-weight: 500;
-  color: var(--accent-saffron);
-}
-
-.intersectionDiagram span { font-size: 1.05rem; }
-
-.arrowIcon {
-  color: var(--text-muted);
-  font-size: 1.2rem;
-  margin: var(--space-2) 0;
-}
-
-/* Sub-heading as category label */
-.subHeading {
+.insightLabel {
+  display: block;
   font-size: 11px;
-  font-weight: 600;
-  color: var(--accent-saffron);
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  margin-bottom: var(--space-3);
+  letter-spacing: 0.06em;
+  color: var(--accent-blue);
+  margin-bottom: 6px;
 }
 
-.arrowList {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-2);
-}
-
-.arrowList li {
-  font-size: 0.92rem;
-  color: var(--text-primary);
-  display: flex;
-  align-items: flex-start;
-  line-height: 1.55;
-}
-
-.arrow {
-  color: var(--text-muted);
-  margin-right: var(--space-3);
-  font-weight: 600;
-}
-
-.divider {
-  height: 1px;
-  background: var(--border-subtle);
-  width: 100%;
-}
-
-.cardGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: var(--space-4);
-}
-
-/* Mini Card (details/summary) */
-details.miniCard {
-  background: var(--bg-surface);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-md);
-  padding: var(--space-4) var(--space-5);
-  box-shadow: var(--shadow-sm);
-  transition:
-    background 0.3s var(--ease-spring),
-    border-color 0.3s var(--ease-spring);
-}
-
-details.miniCard:hover {
-  background: var(--bg-surface-hover);
-  border-color: var(--border-hover);
-}
-
-details.miniCard[open] {
-  background: var(--bg-surface-hover);
-  border-color: rgba(255, 140, 0, 0.22);
-}
-
-details.miniCard summary {
-  cursor: pointer;
-  list-style: none;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 0;
-  outline: none;
-}
-
-details.miniCard summary::-webkit-details-marker { display: none; }
-
-details.miniCard summary::after {
-  content: "+";
-  font-size: 1.3rem;
-  font-weight: 300;
-  color: var(--accent-saffron);
-  transition: transform 0.3s var(--ease-spring);
-}
-
-details.miniCard[open] summary { margin-bottom: var(--space-3); }
-details.miniCard[open] summary::after { transform: rotate(45deg); }
-
-/* ---- Insight Box (no thick sidebar) ---- */
-.insightBox {
-  padding: var(--space-4) var(--space-5);
-  background: var(--accent-saffron-muted);
-  border: 1px solid rgba(255, 140, 0, 0.18);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-sm);
-}
-
-/* Insight Badge — category label style */
-.insightBadge {
-  font-size: 11px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--accent-saffron);
-  margin-bottom: var(--space-2);
-}
-
-.insightText {
-  font-size: 1rem;
-  font-style: italic;
-  color: var(--text-primary);
-  line-height: 1.6;
-}
-
-/* ---- Comparison Layout ---- */
-.comparisonContainer {
-  display: flex;
-  gap: var(--space-5);
-}
-
-.comparisonSide {
-  flex: 1;
-  background: var(--bg-surface);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-md);
-  padding: var(--space-5);
-  box-shadow: var(--shadow-sm);
-}
-
-/* ---- Reality Check ---- */
-.realityCheck {
-  background: rgba(255, 69, 58, 0.04);
-  border: 1px solid rgba(255, 69, 58, 0.14);
-  border-radius: var(--radius-md);
-  padding: var(--space-4) var(--space-5);
-  margin-top: var(--space-4);
-}
-
-.realityBadge {
-  display: inline-block;
-  font-size: 11px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: #FF453A;
-  margin-bottom: var(--space-3);
-}
-
-/* ---- Link ---- */
-.link {
-  color: var(--accent-saffron);
-  text-decoration: none;
-  border-bottom: 1px solid transparent;
-  transition: border-color 0.2s var(--ease-in-out);
-}
-.link:hover { border-bottom-color: var(--accent-saffron); }
-
-/* ---- Button Container ---- */
-.buttonContainer {
-  display: flex;
-  justify-content: flex-start;
-  margin-top: var(--space-4);
-}
-
-/* ---- Linear-style Button ---- */
-.linearButton {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 9px 18px;
-  background: var(--bg-surface-hover);
-  color: var(--text-primary);
-  font-size: 0.875rem;
-  font-weight: 500;
-  letter-spacing: -0.005em;
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-md);
-  text-decoration: none;
-  box-shadow: var(--shadow-sm);
-  transition:
-    background 0.25s var(--ease-spring),
-    border-color 0.25s var(--ease-spring),
-    transform 0.25s var(--ease-spring),
-    box-shadow 0.25s var(--ease-spring);
-}
-
-.linearButton:hover {
-  background: var(--bg-elevated);
-  border-color: var(--border-hover);
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-md);
-}
-
-.linearButton:active {
-  transform: translateY(0);
-  box-shadow: var(--shadow-xs);
-}
-
-.linearButton:focus-visible {
-  outline: none;
-  box-shadow: var(--focus-ring);
-}
-
-/* ============================================================
-   Responsive
-   ============================================================ */
 @media (max-width: 768px) {
   .connectorLine { display: none; }
-  .contentBlock { margin-left: 0; margin-top: var(--space-4); }
-}
-
-@media (max-width: 640px) {
-  .comparisonContainer { flex-direction: column; }
+  .contentBlock { margin-left: 0; margin-top: 0; padding: 1.5rem; }
 }

@@ -1,220 +1,184 @@
 /* ============================================================
-   Footer — Elite SaaS Standard
+   Footer — Antigravity Minimalist Light Standard
    ============================================================ */
 
 .footer {
-  border-top: 1px solid var(--border-subtle);
-  margin-top: var(--space-20);
-  background: var(--bg-root);
-}
-
-/* ---- Contact Section ---- */
-.contactSection {
-  max-width: 640px;
-  margin: 0 auto;
-  padding: var(--space-20) var(--space-8) var(--space-16);
-  text-align: center;
-}
-
-.contactTitle {
+  background-color: var(--bg-root);
   color: var(--text-primary);
-  margin-bottom: var(--space-3);
-}
-
-.contactSubtitle {
-  color: var(--text-secondary);
-  font-size: 0.92rem;
-  line-height: 1.6;
-  margin-bottom: var(--space-10);
-}
-
-/* ---- Form ---- */
-.form {
+  padding: 8rem 5% 2rem;
   display: flex;
   flex-direction: column;
-  gap: var(--space-4);
-  text-align: left;
+  position: relative;
+  z-index: 10;
+  border-top: 1px solid var(--border-subtle);
 }
 
-.formRow {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-4);
-}
-
-.input,
-.textarea {
-  width: 100%;
-  background: var(--bg-surface);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-sm);
-  padding: 11px var(--space-4);
-  color: var(--text-primary);
-  font-family: var(--font-sans);
-  font-size: 0.875rem;
-  outline: none;
-  box-shadow: var(--shadow-xs);
-  transition:
-    border-color 0.25s var(--ease-spring),
-    background 0.25s var(--ease-spring),
-    box-shadow 0.25s var(--ease-spring);
-  resize: none;
-}
-
-.input::placeholder,
-.textarea::placeholder {
-  color: var(--text-muted);
-}
-
-.input:hover,
-.textarea:hover {
-  border-color: var(--border-hover);
-  background: var(--bg-surface-hover);
-}
-
-.input:focus,
-.textarea:focus {
-  border-color: var(--border-focus);
-  box-shadow: var(--focus-ring);
-  background: var(--bg-surface-hover);
-}
-
-/* ---- Submit Button ---- */
-.submitBtn {
-  align-self: flex-end;
-  padding: 10px var(--space-8);
-  background: var(--accent-saffron);
-  color: var(--bg-root);
-  border: none;
-  border-radius: var(--radius-sm);
-  font-family: var(--font-sans);
-  font-size: 0.875rem;
-  font-weight: 700;
-  letter-spacing: -0.005em;
-  cursor: pointer;
-  transition:
-    background 0.25s var(--ease-spring),
-    transform 0.25s var(--ease-spring),
-    box-shadow 0.25s var(--ease-spring);
-}
-
-.submitBtn:hover {
-  background: #e07c00;
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-accent);
-}
-
-.submitBtn:focus-visible {
-  outline: none;
-  box-shadow: var(--focus-ring);
-}
-
-/* ---- Divider ---- */
-.divider {
-  height: 1px;
-  background: var(--border-subtle);
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-/* ---- Bottom Branding Bar ---- */
-.bottomBar {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: var(--space-10) var(--space-8) var(--space-12);
+/* ---- Top Section ---- */
+.topSection {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  margin-bottom: 6rem;
+  gap: 4rem;
   flex-wrap: wrap;
-  gap: var(--space-8);
 }
 
-.brandBlock {}
+.leftCol {
+  flex: 1;
+  min-width: 280px;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
 
-.footerLogo {
-  font-size: 1.05rem;
+.hook {
+  font-size: 2rem;
   font-weight: 700;
   letter-spacing: -0.03em;
   color: var(--text-primary);
-  margin-bottom: var(--space-3);
+  margin: 0;
 }
-.footerLogo span { color: var(--accent-saffron); }
 
 .bio {
+  font-size: 1rem;
   color: var(--text-secondary);
-  font-size: 0.855rem;
-  max-width: 340px;
-  line-height: 1.65;
+  line-height: 1.6;
 }
 
-.copyright {
-  color: var(--text-muted);
-  font-size: 0.78rem;
-  margin-top: var(--space-5);
+.rightCols {
+  display: flex;
+  gap: 6rem;
+  flex-wrap: wrap;
 }
 
-/* ---- Social Icons ---- */
-.socialBlock {
+.linkCol {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-  gap: var(--space-4);
+  gap: 1rem;
 }
 
-/* Category label treatment */
-.socialLabel {
+.colTitle {
   font-size: 11px;
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--text-muted);
+  margin-bottom: 0.25rem;
 }
 
-.socialLinks {
-  display: flex;
-  gap: var(--space-3);
+.link {
+  font-size: 14px;
+  color: var(--text-primary);
+  font-weight: 500;
+  transition: opacity 0.2s ease;
 }
 
-.socialIcon {
+.link:hover { opacity: 0.6; }
+
+.horizontalLinks {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  background: var(--bg-surface);
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.pillLink {
+  font-size: 13px;
+  color: var(--text-primary);
+  font-weight: 500;
   border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-md);
-  color: var(--text-secondary);
-  box-shadow: var(--shadow-xs);
-  transition:
-    border-color 0.25s var(--ease-spring),
-    color 0.25s var(--ease-spring),
-    background 0.25s var(--ease-spring),
-    transform 0.25s var(--ease-spring),
-    box-shadow 0.25s var(--ease-spring);
+  padding: 5px 12px;
+  border-radius: 999px;
+  transition: background 0.2s ease, border-color 0.2s ease;
 }
 
-.socialIcon:hover {
-  border-color: rgba(255, 140, 0, 0.30);
-  color: var(--accent-saffron);
-  background: var(--acc-saffron-muted, var(--accent-saffron-muted));
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-accent);
+.pillLink:hover {
+  background: #F3F4F6;
+  border-color: #9CA3AF;
 }
 
-.socialIcon:focus-visible {
-  outline: none;
-  box-shadow: var(--focus-ring);
+/* ---- Middle: Editorial Typography ---- */
+.middleSection {
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 2rem;
+  padding-top: clamp(2rem, 5vw, 4rem); /* Prevents the shifted 'CT' from being cut off */
 }
 
-.socialIcon svg {
-  width: 17px;
-  height: 17px;
-  fill: currentColor;
+.editorialBlock {
+  display: flex;
+  align-items: center; /* Align to center to allow relative shifting */
+  line-height: 1;
+  gap: 0;
+}
+
+/* PROD — the main massive element */
+.massiveProd {
+  font-size: clamp(5rem, 18vw, 22rem);
+  font-weight: 700;
+  letter-spacing: -0.06em;
+  line-height: 0.85;
+  color: var(--text-primary);
+  display: block;
+}
+
+/* Right side: CT stacked on MANAGEMENT */
+.stackedRight {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* Shift the entire right block upwards relative to PROD's middle */
+  transform: translateY(-15%);
+  padding-left: clamp(0.2rem, 1vw, 1rem);
+}
+
+/* CT — matches the size of PROD but is shifted up */
+.massiveCt {
+  font-size: clamp(5rem, 18vw, 22rem);
+  font-weight: 700;
+  letter-spacing: -0.06em;
+  line-height: 0.85;
+  color: var(--text-primary);
+  display: block;
+}
+
+/* MANAGEMENT — Enlarged to take up the space created underneath CT */
+.managementText {
+  font-size: clamp(1.2rem, 4vw, 4.5rem);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  display: block;
+  margin-top: clamp(-0.5rem, -1vw, -1rem); /* Tuck it closely under CT */
+}
+
+/* ---- Bottom Section ---- */
+.bottomSection {
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.brand {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+
+.brand span { color: var(--accent-blue); }
+
+.copyright {
+  font-size: 12px;
+  color: var(--text-muted);
 }
 
 @media (max-width: 768px) {
-  .formRow { grid-template-columns: 1fr; }
-  .bottomBar { flex-direction: column; }
-  .socialBlock { align-items: flex-start; }
+  .topSection { flex-direction: column; gap: 3rem; }
+  .rightCols { gap: 3rem; width: 100%; }
+  .bottomSection { flex-direction: column; text-align: center; }
 }

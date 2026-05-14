@@ -1,119 +1,68 @@
-"use client";
 import React from 'react';
+import Link from 'next/link';
 import styles from './Footer.module.css';
-
-/* ---- Monochrome SVG Icons ---- */
-const LinkedInIcon = () => (
-  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-  </svg>
-);
-
-const PortfolioIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="12" cy="12" r="10"></circle>
-    <line x1="2" y1="12" x2="22" y2="12"></line>
-    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-  </svg>
-);
-
-const InstagramIcon = () => (
-  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-  </svg>
-);
-
-const GitHubIcon = () => (
-  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-    <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
-  </svg>
-);
 
 const Footer = () => {
   return (
     <footer className={styles.footer}>
-
-      {/* ---- Contact Form ---- */}
-      <div className={styles.contactSection}>
-        <h2 className={styles.contactTitle}>Get in Touch</h2>
-        <p className={styles.contactSubtitle}>
-          Aspiring PM? Let&apos;s connect, collaborate, or just talk product.
-        </p>
-
-        <form className={styles.form} action="https://formsubmit.co/f09ecae8bddc8554152dadf79dfd0799" method="POST">
-          <div className={styles.formRow}>
-            <input className={styles.input} type="text" name="name" placeholder="Your Name" required />
-            <input className={styles.input} type="email" name="email" placeholder="Your Email" required />
-          </div>
-          <textarea
-            className={styles.textarea}
-            name="message"
-            rows={5}
-            placeholder="Your message..."
-            required
-          />
-          <button type="submit" className={styles.submitBtn}>Send Message</button>
-        </form>
-      </div>
-
-      <div className={styles.divider} />
-
-      {/* ---- Bottom Branding Bar ---- */}
-      <div className={styles.bottomBar}>
-        <div className={styles.brandBlock}>
-          <p className={styles.footerLogo}>Aditya K <span>&lt;3</span></p>
+      {/* Top Section */}
+      <div className={styles.topSection}>
+        <div className={styles.leftCol}>
+          <h2 className={styles.hook}>Master the Craft.</h2>
           <p className={styles.bio}>
-            Aditya Kuranjekar — PM Coordinator in Finance Club.<br/>
-            Technical Product Management Intern at Inditronix AI Labs.<br/>
-            Product Brand Management Intern at Skillify Me.<br/>
-            Building resources for the next generation of AI-first product managers.
+            <strong>Aditya Kailash Kuranjekar</strong><br />
+            Building resources for the next generation of AI-first product managers.<br /><br />
+            <span style={{opacity: 0.8, fontSize: '0.9em', lineHeight: '1.8'}}>
+              • PM Coordinator @ Finance Club<br />
+              • Technical PM Intern @ Inditronix AI Labs<br />
+              • Product Brand Management Intern @ Skillify Me
+            </span>
           </p>
-          <p className={styles.copyright}>© 2026 Aditya Kuranjekar. All rights reserved.</p>
         </div>
 
-        <div className={styles.socialBlock}>
-          <span className={styles.socialLabel}>Connect</span>
-          <div className={styles.socialLinks}>
-            <a
-              href="https://www.linkedin.com/in/aditya-kuranjekar-ba572130b/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.socialIcon}
-              aria-label="LinkedIn"
-            >
-              <LinkedInIcon />
-            </a>
-            <a
-              href="https://www.instagram.com/_aditya.k._12/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.socialIcon}
-              aria-label="Instagram"
-            >
-              <InstagramIcon />
-            </a>
-            <a
-              href="https://github.com/adityakuranjekar"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.socialIcon}
-              aria-label="GitHub"
-            >
-              <GitHubIcon />
-            </a>
-            <a
-              href="https://adityakuranjekar.github.io/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.socialIcon}
-              aria-label="Portfolio"
-            >
-              <PortfolioIcon />
-            </a>
+        <div className={styles.rightCols}>
+          <div className={styles.linkCol}>
+            <span className={styles.colTitle}>Resources</span>
+            <Link href="/craft" className={styles.link}>Craft</Link>
+            <Link href="/craft-ai" className={styles.link}>Craft + AI</Link>
+            <Link href="/deep-ai" className={styles.link}>Deep AI</Link>
+            <Link href="/case-studies" className={styles.link}>Case Studies</Link>
+            <Link href="/blogs" className={styles.link}>Blogs</Link>
+          </div>
+
+          <div className={styles.linkCol}>
+            <span className={styles.colTitle}>Connect</span>
+            <div className={styles.horizontalLinks}>
+              <a href="https://www.linkedin.com/in/aditya-kuranjekar-ba572130b/" target="_blank" rel="noopener noreferrer" className={styles.pillLink}>LinkedIn</a>
+              <a href="https://www.instagram.com/_aditya.k._12/" target="_blank" rel="noopener noreferrer" className={styles.pillLink}>Instagram</a>
+              <a href="https://github.com/adityakuranjekar" target="_blank" rel="noopener noreferrer" className={styles.pillLink}>GitHub</a>
+              <a href="https://adityakuranjekar.github.io/" target="_blank" rel="noopener noreferrer" className={styles.pillLink}>Portfolio</a>
+            </div>
           </div>
         </div>
       </div>
 
+      {/* Middle Section: Editorial Split Typography */}
+      <div className={styles.middleSection}>
+        <div className={styles.editorialBlock}>
+          {/* Left: PRODU — massive */}
+          <span className={styles.massiveProd}>PRODU</span>
+
+          {/* Right: CT stacked above MANAGEMENT */}
+          <div className={styles.stackedRight}>
+            <span className={styles.massiveCt}>CT</span>
+            <span className={styles.managementText}>MANAGEMENT</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom Section */}
+      <div className={styles.bottomSection}>
+        <a href="https://adityakuranjekar.github.io/" target="_blank" rel="noopener noreferrer" className={styles.brand} style={{textDecoration: 'none'}}>
+          Aditya K <span>&lt;3</span>
+        </a>
+        <div className={styles.copyright}>© 2026. Built in India.</div>
+      </div>
     </footer>
   );
 };

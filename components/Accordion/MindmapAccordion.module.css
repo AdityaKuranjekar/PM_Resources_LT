@@ -33,7 +33,7 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: var(--accent-saffron);
+  color: var(--accent-blue);
   margin-top: 0.5rem;
 }
 
@@ -101,7 +101,7 @@
 
 .expandIcon.expanded {
   transform: rotate(45deg);
-  color: var(--accent-saffron);
+  color: var(--accent-blue);
 }
 
 /* ---- Content Expand (max-height accordion, spring eased) ---- */
@@ -133,7 +133,7 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: var(--accent-saffron);
+  color: var(--accent-blue);
   margin-bottom: var(--space-4);
   margin-top: var(--space-6);
 }
@@ -180,7 +180,7 @@
   content: '→';
   position: absolute;
   left: 0;
-  color: var(--accent-saffron);
+  color: var(--accent-blue);
 }
 
 /* ---- Deliverable Box ---- */

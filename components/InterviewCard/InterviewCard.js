@@ -8,7 +8,7 @@ const InterviewCard = ({ company, question, answer }) => {
   return (
     <div className={styles.cardContainer}>
       <div className={styles.cardHeader}>
-        <div className={styles.companyBadge}>{company}</div>
+        <div className={styles.companyBadge} data-company={company}>{company}</div>
         <h3 className={styles.questionText}>{question}</h3>
         <button 
           className={styles.toggleBtn}

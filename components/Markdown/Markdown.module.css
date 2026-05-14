@@ -1,0 +1,151 @@
+/* ============================================================
+   Markdown MDX Wrapper — High Contrast Linear Standard
+   ============================================================ */
+
+.wrapper {
+  font-family: inherit;
+  width: 100%;
+}
+
+.wrapper p,
+.wrapper li,
+.wrapper span {
+  color: #374151;
+  line-height: 1.7;
+  font-size: 15px;
+  margin-bottom: 1rem;
+}
+
+.wrapper ul,
+.wrapper ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.wrapper h1,
+.wrapper h2,
+.wrapper h3 {
+  color: #111827;
+  letter-spacing: -0.02em;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  font-weight: 700;
+}
+
+.wrapper h1 { font-size: 1.75rem; }
+.wrapper h2 { font-size: 1.35rem; }
+.wrapper h3 { font-size: 1.1rem; }
+
+/* ---- Muted Subtext ---- */
+.mutedSubtext {
+  color: #6B7280;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+/* ---- Code Blocks ---- */
+.wrapper pre {
+  background-color: #F3F4F6;
+  border: 1px solid #E5E7EB;
+  border-radius: 8px;
+  padding: 1.25rem;
+  overflow-x: auto;
+  margin-bottom: 1.5rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+.wrapper pre code {
+  background: transparent;
+  border: none;
+  padding: 0;
+  color: #1F2937;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* ---- Inline Tags / Pills — High Contrast ---- */
+.wrapper code:not(pre code),
+.pill {
+  background: #F3F4F6;
+  color: #1F2937;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  border: 1px solid #E5E7EB;
+  display: inline-block;
+  margin: 0 2px;
+}
+
+/* ---- Links ---- */
+.wrapper a {
+  color: var(--accent-blue);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  transition: opacity 0.2s ease;
+}
+
+.wrapper a:hover { opacity: 0.7; }
+
+/* ---- PM INSIGHT Callout — Premium blockquote style ---- */
+.wrapper blockquote,
+.insightBlock {
+  background: rgba(37, 99, 235, 0.05);
+  border-left: 3px solid var(--accent-blue);
+  padding: 16px 20px;
+  border-radius: 0 8px 8px 0;
+  margin-left: 0;
+  margin-bottom: 1.5rem;
+  color: #374151;
+  font-style: normal;
+}
+
+/* The "PM INSIGHT" label inside blockquotes */
+.wrapper blockquote strong:first-child,
+.insightLabel {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--accent-blue);
+  margin-bottom: 6px;
+}
+
+/* ---- Horizontal Rule ---- */
+.wrapper hr {
+  border: none;
+  border-top: 1px solid #E5E7EB;
+  margin: 2rem 0;
+}
+
+/* ---- Table ---- */
+.wrapper table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  margin-bottom: 1.5rem;
+}
+
+.wrapper th {
+  text-align: left;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #6B7280;
+  border-bottom: 1px solid #E5E7EB;
+  padding: 0.5rem 0.75rem;
+}
+
+.wrapper td {
+  color: #374151;
+  border-bottom: 1px solid #E5E7EB;
+  padding: 0.75rem;
+  vertical-align: top;
+}

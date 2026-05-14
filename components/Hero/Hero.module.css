@@ -1,118 +1,51 @@
 /* ============================================================
-   Hero — Elite SaaS Standard
+   Hero — Antigravity Minimalist Light Standard
    ============================================================ */
 
-/* ---- Layout ---- */
-.hero {
+.heroSection {
+  min-height: 100vh;
   display: flex;
-  min-height: calc(100vh - 65px);
-  padding: var(--space-24) var(--space-16);
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  justify-content: space-between;
+  text-align: center;
   position: relative;
   overflow: hidden;
-  /* Subtle ambient light from above — zero heavy gradient */
-  background: linear-gradient(to bottom, rgba(255,140,0,0.03) 0%, transparent 60%);
+  background-color: var(--bg-root);
+  padding: 0 2rem;
 }
 
-/* ---- Text Content ---- */
+.canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none; /* Let mouse move events pass through to the window listener */
+}
+
 .heroContent {
-  flex: 1;
-  max-width: 55%;
-  z-index: 2;
-  animation: fadeInUp 0.7s var(--ease-out-expo) both;
-}
-
-.title {
-  /* Tightest letter-spacing for elite density */
-  margin-bottom: var(--space-5);
-  color: var(--text-primary);
-  /* No gradient text — clean, premium */
-}
-
-.subtitle {
-  font-size: clamp(0.875rem, 1.5vw, 1rem);
-  color: var(--text-secondary);
-  font-weight: 400;
-  margin-bottom: var(--space-10);
-  line-height: 1.65;
-  letter-spacing: 0;
-}
-
-.jokeContainer {
-  margin-top: var(--space-8);
-  padding: var(--space-5) var(--space-6);
-  background: var(--bg-surface);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-lg);
-  max-width: 90%;
-  box-shadow: var(--shadow-sm);
-}
-
-.joke {
-  font-style: italic;
-  font-size: clamp(0.875rem, 1.3vw, 0.95rem);
-  color: var(--text-secondary);
-  line-height: 1.65;
-}
-
-/* ---- Image ---- */
-.heroImageContainer {
-  flex: 1;
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
-  z-index: 1;
-  animation: fadeIn 1s var(--ease-out-expo) both;
-  animation-delay: 0.15s;
-}
-
-.imageWrapper {
+  position: relative;
+  z-index: 10;
+  max-width: 900px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--space-5);
+  gap: 1.5rem;
 }
 
-.heroImage {
-  max-width: 85%;
-  max-height: 50vh;
-  height: auto;
-  object-fit: cover;
-  border-radius: var(--radius-xl);
-  /* Refined: subtle shadow, no neon glow ring */
-  box-shadow:
-    0 0 0 1px var(--border-subtle),
-    0 8px 32px rgba(0, 0, 0, 0.6),
-    0 0 60px 8px rgba(255, 140, 0, 0.10);
-}
-
-.quoteWrapper {
-  padding: var(--space-4) var(--space-5);
-  max-width: 95%;
-  text-align: center;
-}
-
-.imageQuote {
-  font-style: italic;
-  font-size: clamp(0.875rem, 1.2vw, 1rem);
-  color: var(--accent-saffron);
-  line-height: 1.55;
+.title {
+  font-size: clamp(3rem, 7vw, 6.5rem);
   font-weight: 500;
+  line-height: 1.05;
+  color: var(--text-primary);
+  /* Global letter-spacing handles the -0.04em */
 }
 
-/* ---- Responsive ---- */
-@media (max-width: 1024px) {
-  .hero {
-    flex-direction: column-reverse;
-    padding: var(--space-12) var(--space-8);
-    text-align: center;
-    min-height: auto;
-  }
-  .heroContent { max-width: 100%; margin-top: var(--space-10); }
-  .jokeContainer { max-width: 100%; }
-  .heroImageContainer { justify-content: center; }
-  .heroImage { max-height: 40vh; }
+.subtitle {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  max-width: 600px;
 }
