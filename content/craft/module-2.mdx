@@ -1,0 +1,137 @@
+<Section label="01 — STRATEGIC THINKING">
+  <h3 className="sectionTitle">Strategy as a Lens</h3>
+  <div className="sectionSub">
+    Strategy isn’t a document you write once a year. It’s the continuous practice of asking not just <em>what</em> to build, but <em>why</em> now, for whom, and to what end.
+  </div>
+
+  <FlowWrapper>
+    <FlowStep steps='[
+      {"title": "Immediate Needs", "sub": "User pain points · Team capabilities"},
+      {"title": "Long-Range Positioning", "sub": "Competitive moats · Value durability"}
+    ]' />
+  </FlowWrapper>
+
+  <MindmapGrid>
+    <MindmapNode defaultOpen title="Urgency vs. Direction" items='["Ship fast, but ship the right thing", "Pressure to execute vs. necessity to lead", "Metrics move weekly; strategy moves quarterly"]' />
+    <MindmapNode title="Requests vs. Needs" items='["Listen for the problem, not the solution", "Users articulate pain; PMs define structure", "Solving the core vs. patching the surface"]' />
+    <MindmapNode title="Short-term vs. Long-term" items='["Engagement now vs. trust over time", "Growth spikes vs. sustainable retention", "Feature factory vs. platform leverage"]' />
+  </MindmapGrid>
+
+  <Insight type="insight" text="Spotify Discover Weekly wasn’t just a feature; it was a mechanism for deepening a personalization moat that competitors couldn’t replicate without similar behavioral data." />
+</Section>
+
+<Section label="02 — USER UNDERSTANDING">
+  <h3 className="sectionTitle">Jobs-to-be-Done (JTBD)</h3>
+  <div className="sectionSub">
+    Users don’t buy products because of features. They “hire” them to accomplish a functional goal, an emotional outcome, or a social signal.
+  </div>
+
+  <TripleIntersect left="Functional Goal" center="Emotional Outcome" right="Social Signal" />
+
+  <CoreGoalRow goals='["Why are they hiring this?", "What did they fire to use us?", "What would they do if we vanished?"]' />
+
+  <Insight type="reality" text="The Milkshake Study: Commuters “hired” milkshakes not for flavor, but to make a long, mess-free commute tolerable. No amount of flavor research would have surfaced that." />
+
+  <CompareGrid 
+    left='{"title": "Solution Thinking", "items": ["Build more recipe filters", "Add social sharing", "Focus on technical speed"]}' 
+    right='{"title": "Job Thinking", "items": ["Eliminate decision fatigue", "Make dinner stop being a chore", "Automate the thinking process"]}' 
+  />
+</Section>
+
+<Section label="03 — PRODUCT-MARKET FIT">
+  <h3 className="sectionTitle">Finding the Audience</h3>
+  <div className="sectionSub">
+    PMF is being in a good market with a product that can satisfy that market. It’s a behavioral signal, not an attitudinal one.
+  </div>
+
+  <MindmapGrid>
+    <MindmapNode defaultOpen title="Retention Curves" items='["Flat curves = product value", "Returning users are the only truth", "Growth without retention is just a leak"]' />
+    <MindmapNode title="The “Very Disappointed” Test" items='["40% benchmark by Sean Ellis", "Qualitative signals of attachment", "Would they miss it if it vanished?"]' />
+  </MindmapGrid>
+
+  <Insight type="tradeoff" text="Scaling before product-market fit is not ambitious—it’s expensive. Focus on a small group that genuinely needs the product first." />
+</Section>
+
+<Section label="04 — MARKET DIAGNOSIS">
+  <h3 className="sectionTitle">Porter’s Five Forces</h3>
+  <div className="sectionSub">
+    Defensibility isn’t about being better; it’s about choosing a position that is structural and hard to replicate.
+  </div>
+
+  <MindmapGrid>
+    <MindmapNode title="Rivalry & Competition" items='["Intensity of current players", "Price wars vs. differentiation"]' />
+    <MindmapNode title="Threat of New Entrants" items='["Barriers to entry", "Capital vs. IP vs. Distribution"]' />
+    <MindmapNode title="Buyer & Supplier Power" items='["Who has the leverage?", "Switching costs for users"]' />
+    <MindmapNode title="Threat of Substitutes" items='["Indirect competitors", "Alternative ways to solve the job"]' />
+  </MindmapGrid>
+
+  <FlowWrapper>
+    <span style={{ fontSize: "11px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.06em", color: "var(--accent-blue)", marginBottom: "1rem", display: "block" }}>Market Sizing Framework</span>
+    <FlowStep steps='[
+      {"title": "TAM (Total Addressable)", "sub": "Global possible demand"},
+      {"title": "SAM (Serviceable Available)", "sub": "Reachable with current model"},
+      {"title": "SOM (Serviceable Obtainable)", "sub": "Realistic capture vs. competition"}
+    ]' />
+  </FlowWrapper>
+</Section>
+
+<Section label="05 — ROOT CAUSE">
+  <h3 className="sectionTitle">The 5 Whys</h3>
+  <div className="sectionSub">
+    Surface problems are usually symptoms. Strategic PMs dig until they find the unvalidated assumption or the system flaw.
+  </div>
+
+  <FlowWrapper>
+    <FlowStep steps='[
+      {"title": "Problem", "sub": "Users abandon checkout"},
+      {"title": "Why 1", "sub": "Process takes too long"},
+      {"title": "Why 2", "sub": "Must re-enter payment details"},
+      {"title": "Why 3", "sub": "App does not save info"},
+      {"title": "Why 4", "sub": "Assumed users wouldn’t trust us"},
+      {"title": "Why 5 (Root)", "sub": "Unvalidated stakeholder opinion"}
+    ]' />
+  </FlowWrapper>
+
+  <Insight type="mistake" text="Fixing the UI of a checkout that users don’t trust is a waste of resources. Solve the root, not the symptom." />
+</Section>
+
+<Section label="06 — DIRECTION & GOALS">
+  <h3 className="sectionTitle">OKRs & North Star</h3>
+  <div className="sectionSub">
+    A strategy without measurable outcomes is just a statement of intent. Goals align the team on the “what” without dictating the “how.”
+  </div>
+
+  <CompareGrid 
+    left='{"title": "Strong North Star", "items": ["Reflects genuine user value", "Correlated with revenue/retention", "Specific and influenceable", "Airbnb: Nights Booked"]}' 
+    right='{"title": "Weak North Star", "items": ["Vanity metrics (Logins)", "Broad enough to be meaningless", "Can be gamed without value", "SaaS: Monthly Active Users"]}' 
+  />
+
+  <Insight type="insight" text="OKRs are a focus system. If you have more than three or four Key Results per Objective, you haven’t made a strategic choice—you’ve listed your backlog." />
+</Section>
+
+<Section label="07 — ADVANCED STRATEGY">
+  <h3 className="sectionTitle">Moats & Systems Thinking</h3>
+  <div className="sectionSub">
+    Features can be copied. Moats are structural advantages built over time. Systems thinking anticipates the second-order effects of every change.
+  </div>
+
+  <MindmapGrid>
+    <MindmapNode defaultOpen title="Types of Moats" items='["Network Effects (LinkedIn Graph)", "Data Advantages (Spotify ML)", "Ecosystem Lock-in (Apple Services)", "High Switching Costs (Salesforce)"]' />
+    <MindmapNode title="Systems Thinking" items='["Second and third-order effects", "Incentive design for users", "Anticipating downstream shifts"]' />
+  </MindmapGrid>
+
+  <Insight type="reality" text="YouTube optimized for watch time. It worked, but it incentivized extreme content—a second-order effect that redefined the platform’s cultural identity." />
+</Section>
+
+<Section label="08 — THE ART OF TRADEOFFS">
+  <h3 className="sectionTitle">Naming the Price</h3>
+  <div className="sectionSub">
+    Every product decision involves giving something up. Weak PMs optimize one variable; strong PMs name the tradeoff and decide if it’s worth it.
+  </div>
+
+  <CoreGoalRow goals='["Speed vs. Quality", "Simplicity vs. Capability", "Short-term vs. Long-term"]' />
+
+  <Insight type="tradeoff" text="The most dangerous product decisions are not the ones made after careful analysis of tradeoffs—they are the ones made by teams who didn’t realize a tradeoff existed." />
+</Section>
+
+<DriveButton link="https://drive.google.com/file/d/1Gm5nHbVLkKnvBIzBem8nLQVqzlGTxmDu/view?usp=sharing" />

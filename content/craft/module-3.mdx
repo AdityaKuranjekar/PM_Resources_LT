@@ -1,0 +1,120 @@
+<Section label="01 — DISCOVERY MINDSET">
+  <h3 className="sectionTitle">Discovery Mindset & Research Intuition</h3>
+  <div className="sectionSub">
+    Product discovery isn’t about validating your pre-existing ideas. It is the disciplined reduction of market and behavioral risk before a single line of code is written.
+  </div>
+
+  <MindmapGrid>
+    <MindmapNode defaultOpen title="Intuition vs. Rigor" items='["Strong opinions, weekly held: use intuition to form hypotheses, rigor to destroy them", "Research is not a democracy: user insights guide direction, PMs synthesize structure", "Validate behavior, not opinion: what users say they will do is rarely what they actually do"]' />
+    <MindmapNode title="Cognitive Bias Mitigation" items='["Confirmation Bias: actively search for disconfirming evidence of your product thesis", "Sunk Cost Fallacy: be willing to kill a feature direction after discovery reveals low utility", "Social Desirability Bias: avoid leading questions that prompt polite, positive responses"]' />
+  </MindmapGrid>
+
+  <Insight type="tradeoff" text="Deep discovery takes time, but scaling a product that nobody wants is the ultimate waste of engineering capital. Speed to learning beats speed to shipping." />
+</Section>
+
+<Section label="02 — BEHAVIORAL PSYCHOLOGY">
+  <h3 className="sectionTitle">Customer Empathy & Hidden Friction</h3>
+  <div className="sectionSub">
+    To build high-adoption products, you must understand the psychological forces acting on the user. Adoption requires overcoming both habit inertia and emotional anxiety.
+  </div>
+
+  <TripleIntersect left="Habit Inertia" center="Emotional Friction" right="Cognitive Load" />
+
+  <CoreGoalRow goals='["What current habit must the user break to adopt us?", "Where does the user experience emotional anxiety during the workflow?", "How much cognitive overhead does our transition impose?"]' />
+
+  <Insight type="reality" text="Enterprise Security: Security engineers often resist new developer-friendly scanner tools because their performance is evaluated on compliance audits, not developer velocity. Empathy means understanding their structural incentives." />
+</Section>
+
+<Section label="03 — DISCOVERY PROCESS">
+  <h3 className="sectionTitle">The Research & Discovery Loop</h3>
+  <div className="sectionSub">
+    Discovery is a continuous, non-linear loop. Shift from broad qualitative generative research to highly structured quantitative validation.
+  </div>
+
+  <FlowWrapper>
+    <FlowStep steps='[
+      {"title": "Generative Discovery", "sub": "Unstructured interviews · Behavioral observation · Identifying friction"},
+      {"title": "Hypothesis Framing", "sub": "Isolate the core customer problem · Map critical assumptions"},
+      {"title": "Assumption Mapping", "sub": "Evaluate assumptions by impact and lack of validation"},
+      {"title": "Targeted Validation", "sub": "Run landing page tests · Prototype walkthroughs · Behavioral cohort tracking"},
+      {"title": "Synthesis & Framing", "sub": "Convert research data into structured user cohorts and specs"}
+    ]' />
+  </FlowWrapper>
+
+  <Insight type="mistake" text="Research Theater: Running interviews just to check a box for stakeholders. If your discovery process has never forced you to pivot or discard a feature, you are doing theater, not research." />
+</Section>
+
+<Section label="04 — ARCHETYPES & MAPPING">
+  <h3 className="sectionTitle">Behavioral Personas & Journey Mapping</h3>
+  <div className="sectionSub">
+    Traditional demographic personas are useless for product builders. Modern PMs design for behavioral cohorts and dynamic journey state transitions.
+  </div>
+
+  <CompareGrid 
+    left='{"title": "Demographic Personas", "items": ["Age, gender, and salary brackets", "Generic statements like \"loves tech\"", "Static profiles that sit in slide decks", "Leads to bloated, generic feature sets"]}' 
+    right='{"title": "Behavioral Cohorts", "items": ["Specific workflows they are trying to automate", "Unique constraints like high compliance or low bandwidth", "Dynamic states based on product lifecycle usage", "Leads to hyper-targeted, high-retention features"]}' 
+  />
+
+  <Insight type="insight" text="Journey maps must capture emotional state changes. The transition between \'waiting for API sync\' and \'first data visual\' is where users experience either immediate relief or high bounce anxiety." />
+</Section>
+
+<Section label="05 — B2B STAKEHOLDER CONFLICTS">
+  <h3 className="sectionTitle">B2B Research & Buying Committees</h3>
+  <div className="sectionSub">
+    In B2B enterprise software, the person who buys the product is rarely the person who uses it. Discovery must solve for the entire structural grid.
+  </div>
+
+  <MindmapGrid>
+    <MindmapNode defaultOpen title="The Economic Buyer" items='["Concerned with ROI, compliance, and budget consolidation", "Key question: Will this reduce total software spend or labor cost?", "Requires clean dashboarding and security reporting"]' />
+    <MindmapNode title="The Daily Operator" items='["Concerned with daily workflow efficiency and ease of use", "Key question: Will this save me 30 minutes today or make my job harder?", "Requires deep system integrations and low friction"]' />
+    <MindmapNode title="The Tech Evaluator" items='["Concerned with security, APIs, latency, and system maintenance", "Key question: Will this increase my security risk or technical debt?", "Requires deep developer docs and SSO support"]' />
+  </MindmapGrid>
+
+  <Insight type="reality" text="Health Tech Systems: A clinical workflow tool might have beautiful UI that daily nurses love, but if it lacks HIPAA-compliant audit trails, the IT Security Evaluator will veto the deal instantly." />
+</Section>
+
+<Section label="06 — ENGAGEMENT PSYCHOLOGY">
+  <h3 className="sectionTitle">The Hook Model & Habit Formation</h3>
+  <div className="sectionSub">
+    Defensible products build habits. The Hook Model maps how external triggers transition into internal habits through investments.
+  </div>
+
+  <FlowWrapper>
+    <FlowStep steps='[
+      {"title": "1. Trigger", "sub": "External notification or internal emotional need (e.g. anxiety)"},
+      {"title": "2. Action", "sub": "The simplest behavior done in anticipation of a reward"},
+      {"title": "3. Variable Reward", "sub": "Immediate cognitive or social validation that satisfies the craving"},
+      {"title": "4. Investment", "sub": "User puts data, work, or social capital back into the product"}
+    ]' />
+  </FlowWrapper>
+
+  <Insight type="tradeoff" text="Variable rewards build habits, but they must align with genuine user utility. Manipulative feedback loops create short-term spikes followed by long-term churn." />
+</Section>
+
+<Section label="07 — VALIDIATION FRAMEWORKS">
+  <h3 className="sectionTitle">Problem-Solution Fit</h3>
+  <div className="sectionSub">
+    Before writing specs, you must prove the existence of the problem and the viability of the behavioral change required to solve it.
+  </div>
+
+  <CompareGrid 
+    left='{"title": "Unvalidated Assumptions", "items": ["Users will manually upload their CSV every Monday", "Managers will log in weekly to check analytics dashboards", "Developers will read docs before integrating APIs"]}' 
+    right='{"title": "Validated Behaviors", "items": ["Users automate uploads via an SFTP integration", "Analytics are pushed to their existing Slack workspace", "Integration is tested via a pre-built SDK template"]}' 
+  />
+
+  <Insight type="mistake" text="Falling in love with your solution rather than the problem. When a solution fails validation, generic PMs build helper tutorials; strategic PMs re-evaluate the core problem." />
+</Section>
+
+<Section label="08 — RESEARCH SYNTHESIS">
+  <h3 className="sectionTitle">User Interviews & Pattern Matching</h3>
+  <div className="sectionSub">
+    The art of the user interview is getting out of the way. Do not ask users what they want; ask them how they solved the problem last week.
+  </div>
+
+  <MindmapGrid>
+    <MindmapNode defaultOpen title="Interview Best Practices" items='["Ask open-ended behavioral questions: \"Walk me through the last time you...\"", "Avoid hypotheticals: \"Would you use...\" is highly inaccurate", "Dig into emotional anchors: look for signs of frustration or delight"]' />
+    <MindmapNode title="Synthesis & Pattern Matching" items='["Group raw quotes by underlying Jobs-to-be-Done (JTBD)", "Isolate structural workflow workarounds: users hacking Excel is a major goldmine", "Identify cohort divergence: notice when enterprise users struggle with startup tools"]' />
+  </MindmapGrid>
+</Section>
+
+<DriveButton link="https://drive.google.com/file/d/1A64zmduSL1dQ7rB_WgZ7suUzKG-fjYl-/view?usp=sharing" />

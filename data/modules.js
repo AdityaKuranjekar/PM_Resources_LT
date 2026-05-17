@@ -11,7 +11,8 @@ export const modulesData = [
         outcomes: ["Understand core PM responsibilities and mindset", "Develop product sense — form and defend opinions", "Learn how B2B and B2C roles differ across stakeholders"],
         tools: ["Conceptual frameworks"],
         deliverable: "First product observations + thinking exercises",
-        videoUrl: "https://www.youtube.com/embed/placeholder1"
+        videoUrl: "https://www.youtube.com/embed/placeholder1",
+        driveUrl: "https://drive.google.com/file/d/1zZBNXTMKjPKxcmUXhPgsCJg4SMoICem3/view?usp=sharing"
       },
       {
         id: "module-2",
@@ -21,7 +22,8 @@ export const modulesData = [
         outcomes: ["Define product vision, positioning, and competitive moats", "Apply product judgment through real product teardowns", "Understand new PM model: small teams, high agency, builder convergence", "Apply systems thinking and bet sizing"],
         tools: ["Strategy frameworks"],
         deliverable: "Competitive analysis + product positioning strategy",
-        videoUrl: "https://www.youtube.com/embed/placeholder2"
+        videoUrl: "https://www.youtube.com/embed/placeholder2",
+        driveUrl: "https://drive.google.com/file/d/1Gm5nHbVLkKnvBIzBem8nLQVqzlGTxmDu/view?usp=sharing"
       },
       {
         id: "module-3",
@@ -31,7 +33,8 @@ export const modulesData = [
         outcomes: ["Develop strong personas and identify pain points across B2B and B2C", "Conduct qualitative and quantitative research efficiently", "Map B2B buying committees: economic buyer, technical evaluator, champion", "Extract insights and create user research reports"],
         tools: ["Research methodologies"],
         deliverable: "Research deck with user and market insights",
-        videoUrl: "https://www.youtube.com/embed/placeholder3"
+        videoUrl: "https://www.youtube.com/embed/placeholder3",
+        driveUrl: "https://drive.google.com/file/d/1A64zmduSL1dQ7rB_WgZ7suUzKG-fjYl-/view?usp=sharing"
       },
       {
         id: "module-4",

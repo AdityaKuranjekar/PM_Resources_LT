@@ -68,7 +68,7 @@ const FlowchartModule = ({ data, mdxNodes = {} }) => {
                           <span>{module.title} Visual Reference</span>
                         </div>
 
-                        <a href="#drive-link" className={styles.driveButton}>
+                        <a href={module.driveUrl || "#drive-link"} className={styles.driveButton} target="_blank" rel="noopener noreferrer">
                           View details on Drive
                         </a>
                       </>
