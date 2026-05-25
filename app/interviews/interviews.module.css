@@ -59,3 +59,46 @@
   .hero { padding: 6rem 5% 3rem; }
   .content { padding: 0 5% 4rem; }
 }
+
+.noResults {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: #FFFFFF;
+  border: 1px dashed #D1D5DB;
+  border-radius: 12px;
+  color: #4B5563;
+  margin-top: 1rem;
+}
+
+.noResults h3 {
+  color: #111827;
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.noResults p {
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+}
+
+.clearBtnInline {
+  background: #2563EB;
+  color: #FFFFFF;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.clearBtnInline:hover {
+  background: #1D4ED8;
+}
+
+.clearBtnInline:active {
+  transform: scale(0.98);
+}
+

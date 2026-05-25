@@ -1,33 +1,76 @@
+// e:\Professional Work\Business\Product Management\Website\PM_Resources\components\InterviewFilter\InterviewFilter.js
 "use client";
+
 import React from 'react';
 import styles from './InterviewFilter.module.css';
 
-const InterviewFilter = () => {
+const InterviewFilter = ({
+  selectedCompany,
+  selectedType,
+  selectedRole,
+  onCompanyChange,
+  onTypeChange,
+  onRoleChange,
+  onClear,
+  questions = []
+}) => {
+  // Dynamically extract unique values from the questions array
+  const companies = ['All', ...new Set(questions.map((q) => q.company))].sort();
+  const types = ['All', ...new Set(questions.map((q) => q.type))].sort();
+  const roles = ['All', ...new Set(questions.map((q) => q.role))].sort();
+
   return (
     <div className={styles.filterContainer}>
       <div className={styles.selectGroup}>
-        <select className={styles.dropdown}>
-          <option>All Companies</option>
-          <option>Google</option>
-          <option>Meta</option>
-          <option>Stripe</option>
+        {/* Company Dropdown */}
+        <select 
+          className={styles.dropdown}
+          value={selectedCompany}
+          onChange={(e) => onCompanyChange(e.target.value)}
+        >
+          <option value="All">All Companies</option>
+          {companies
+            .filter((c) => c !== 'All')
+            .map((c) => (
+              <option key={c} value={c}>{c}</option>
+            ))}
         </select>
-        <select className={styles.dropdown}>
-          <option>All Types</option>
-          <option>Product Sense</option>
-          <option>Execution</option>
-          <option>Behavioral</option>
+
+        {/* Type Dropdown */}
+        <select 
+          className={styles.dropdown}
+          value={selectedType}
+          onChange={(e) => onTypeChange(e.target.value)}
+        >
+          <option value="All">All Types</option>
+          {types
+            .filter((t) => t !== 'All')
+            .map((t) => (
+              <option key={t} value={t}>{t}</option>
+            ))}
         </select>
-        <select className={styles.dropdown}>
-          <option>All Roles</option>
-          <option>PM</option>
-          <option>Senior PM</option>
-          <option>AI PM</option>
+
+        {/* Role Dropdown */}
+        <select 
+          className={styles.dropdown}
+          value={selectedRole}
+          onChange={(e) => onRoleChange(e.target.value)}
+        >
+          <option value="All">All Roles</option>
+          {roles
+            .filter((r) => r !== 'All')
+            .map((r) => (
+              <option key={r} value={r}>{r}</option>
+            ))}
         </select>
       </div>
-      <button className={styles.clearButton}>
-        <span className={styles.reloadIcon}>↻</span> Clear filters
-      </button>
+
+      {/* Clear Filters Button */}
+      {(selectedCompany !== 'All' || selectedType !== 'All' || selectedRole !== 'All') && (
+        <button className={styles.clearButton} onClick={onClear}>
+          <span className={styles.reloadIcon}>↻</span> Clear filters
+        </button>
+      )}
     </div>
   );
 };
